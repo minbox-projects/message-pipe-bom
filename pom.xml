@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.minbox.framework</groupId>
+        <artifactId>minbox-parent</artifactId>
+        <version>1.0.1.RELEASE</version>
+        <relativePath/>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.minbox.framework</groupId>
+    <artifactId>message-pipe-bom</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>MessagePipe Bom</name>
+    <url>https://github.com/minbox-projects/message-pipe-bom</url>
+    <description>
+        The "message-pipe" bom
+    </description>
+    <properties>
+        <message-pipe.version>1.0.0-SNAPSHOT</message-pipe.version>
+    </properties>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>hengboy</id>
+            <email>hengboy@minbox.org</email>
+            <name>恒宇少年</name>
+            <url>https://blog.yuqiyu.com</url>
+            <organization>minbox-projects</organization>
+            <organizationUrl>https://github.com/minbox-projects</organizationUrl>
+        </developer>
+    </developers>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.minbox.framework</groupId>
+                <artifactId>message-pipe-client</artifactId>
+                <version>${message-pipe.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.minbox.framework</groupId>
+                <artifactId>message-pipe-server</artifactId>
+                <version>${message-pipe.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.minbox.framework</groupId>
+                <artifactId>message-pipe-spring-context</artifactId>
+                <version>${message-pipe.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.minbox.framework</groupId>
+                <artifactId>message-pipe-core</artifactId>
+                <version>${message-pipe.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
