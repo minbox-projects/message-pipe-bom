@@ -11,7 +11,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.minbox.framework</groupId>
     <artifactId>message-pipe-bom</artifactId>
-    <version>1.0.2.RELEASE</version>
+    <version>1.0.3.RELEASE</version>
     <packaging>pom</packaging>
     <name>MessagePipe Bom</name>
     <url>https://github.com/minbox-projects/message-pipe-bom</url>
@@ -19,7 +19,7 @@
         The "message-pipe" bom
     </description>
     <properties>
-        <message-pipe.version>1.0.2.RELEASE</message-pipe.version>
+        <message-pipe.version>1.0.3.RELEASE</message-pipe.version>
     </properties>
     <licenses>
         <license>
