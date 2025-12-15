@@ -2,24 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <groupId>org.minbox.framework</groupId>
-        <artifactId>minbox-parent</artifactId>
-        <version>1.0.7</version>
-        <relativePath/>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.minbox.framework</groupId>
     <artifactId>message-pipe-bom</artifactId>
-    <version>1.0.6-SNAPSHOT</version>
+    <version>1.0.7</version>
     <packaging>pom</packaging>
-    <name>MessagePipe Bom</name>
     <url>https://github.com/minbox-projects/message-pipe-bom</url>
     <description>
         The "message-pipe" bom
     </description>
+    <name>message-pipe-bom</name>
     <properties>
-        <message-pipe.version>1.0.6-SNAPSHOT</message-pipe.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <jdk.version>11</jdk.version>
+        <message-pipe.version>1.0.7</message-pipe.version>
+        <maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
+        <maven.source.plugin.version>3.3.1</maven.source.plugin.version>
+        <maven-javadoc-plugin.version>3.11.1</maven-javadoc-plugin.version>
     </properties>
     <licenses>
         <license>
@@ -27,6 +27,28 @@
             <url>http://www.apache.org/licenses/LICENSE-2.0</url>
         </license>
     </licenses>
+    <scm>
+        <connection>scm:git:https://github.com/minbox-projects/message-pipe-bom.git</connection>
+        <developerConnection>scm:git:https://github.com/minbox-projects/message-pipe-bom.git</developerConnection>
+        <url>https://github.com/minbox-projects/message-pipe-bom</url>
+    </scm>
+    <organization>
+        <name>MinBox</name>
+        <url>https://github.com/minbox-projects</url>
+    </organization>
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+        <repository>
+            <id>snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
     <developers>
         <developer>
             <id>hengboy</id>
@@ -61,4 +83,72 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <!--Source-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven.source.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>package</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--Javadoc-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc-plugin.version}</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>package</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.9.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>hengyu</publishingServerId>
+                </configuration>
+            </plugin>
+            <!--GPG-->
+            <plugin>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>${maven-gpg-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
