@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.minbox.framework</groupId>
     <artifactId>message-pipe-bom</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
     <packaging>pom</packaging>
     <url>https://github.com/minbox-projects/message-pipe-bom</url>
     <description>
@@ -16,7 +16,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <jdk.version>11</jdk.version>
-        <message-pipe.version>1.0.7</message-pipe.version>
+        <message-pipe.version>1.0.8</message-pipe.version>
         <maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
         <maven.source.plugin.version>3.3.1</maven.source.plugin.version>
         <maven-javadoc-plugin.version>3.11.1</maven-javadoc-plugin.version>
@@ -116,6 +116,7 @@
                 <version>${maven-javadoc-plugin.version}</version>
                 <configuration>
                     <encoding>${project.build.sourceEncoding}</encoding>
+                    <doclint>none</doclint>
                 </configuration>
                 <executions>
                     <execution>
